@@ -1,7 +1,7 @@
+import 'package:e_course/controller/auth/successignup_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../core/constant/color.dart';
 import '../../widget/auth/custombuttomauth.dart';
 
@@ -10,6 +10,8 @@ class SuccessSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SuccessSignUpControllerControllerImp controller = Get.put(SuccessSignUpControllerControllerImp());
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -40,7 +42,7 @@ class SuccessSignUp extends StatelessWidget {
               child: CustomButtomAuth(
                 text: "31".tr,
                 onPressed: (){
-                      //controller.signUp();
+                  controller.goToPageLogin();
               },),
             ),
             const SizedBox(height: 30,)

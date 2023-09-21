@@ -14,7 +14,7 @@ class MyTranslation extends Translations{
       "7": "La commande peut être suivie à chaque étape \n jusqu'à ce qu'elle vous parvienne.",
       "8": "Continuer",
       "9": "Se connecter",
-      "10": "Bienvenue de retour",
+      "10": "Bienvenue ",
       "11": "Connectez-vous avec votre e-mail et votre mot de passe ou continuez avec les réseaux sociaux.",
       "12": "Entrez votre e-mail",
       "13": "Entrez votre mot de passe",
