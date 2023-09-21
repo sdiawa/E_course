@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../../controller/auth/signup_controller.dart';
+import '../../../core/functions/alertexitapp.dart';
 import '../../../core/functions/validinput.dart';
 import '../../widget/auth/custombuttomauth.dart';
 import '../../widget/auth/customtextformauth.dart';
@@ -25,7 +26,10 @@ class SignUp extends StatelessWidget {
         elevation: 0.0,
         title: Text('17'.tr,style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey),),
       ),
-      body: Container(
+
+      body: WillPopScope(
+      onWillPop: alertExitApp,
+      child: Container(
         padding:
         const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: Form(
@@ -96,6 +100,7 @@ class SignUp extends StatelessWidget {
             ),
           ]),
         ),
+      ),
       ) ,
     );
   }
