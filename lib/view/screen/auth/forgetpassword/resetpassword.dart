@@ -34,12 +34,14 @@ class ResetPassword extends StatelessWidget {
           const   SizedBox(height: 15,),
 
           CustomTextFormAuth(
+            valid: (val){ },
             hinttext: "13".tr,
             labeltext:  "19".tr,
             iconData: Icons.lock_clock_outlined,
             mycontroller: controller.password,
           ),
           CustomTextFormAuth(
+            valid: (val){ },
             hinttext: "Re" + " " + "13".tr,
             labeltext:"19".tr ,
             iconData: Icons.lock_clock_outlined,

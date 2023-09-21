@@ -1,3 +1,4 @@
+import 'package:e_course/core/functions/validinput.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,12 +7,14 @@ class CustomTextFormAuth extends StatelessWidget {
   final String labeltext;
   final IconData iconData;
   final TextEditingController? mycontroller;
+  final String? Function(String?) valid;
 
   const CustomTextFormAuth({super.key,
     required this.hinttext,
     required this.labeltext,
     required this.iconData,
-    required this.mycontroller});
+    required this.mycontroller,
+    required this.valid});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +22,7 @@ class CustomTextFormAuth extends StatelessWidget {
       Container(
         margin: const EdgeInsets.only(bottom: 30),
         child: TextFormField(
+          validator: valid,
           controller: mycontroller,
 
           decoration: InputDecoration(

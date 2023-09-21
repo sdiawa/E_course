@@ -35,12 +35,18 @@ class SignUp extends StatelessWidget {
              (text: "24".tr),
           const   SizedBox(height: 15,),
              CustomTextFormAuth(
+               valid: (val){
+
+               },
             hinttext:  "23".tr,
             labeltext:"20".tr,
             iconData: Icons.person_outline,
              mycontroller: controller.username,
           ),
              CustomTextFormAuth(
+               valid: (val){
+
+               },
                hinttext: "12".tr,
                labeltext: "18".tr,
                iconData: Icons.email_outlined,
@@ -48,6 +54,9 @@ class SignUp extends StatelessWidget {
 
           ),
              CustomTextFormAuth(
+               valid: (val){
+
+               },
                hinttext: "22".tr,
                labeltext: "21".tr,
                iconData: Icons.phone_android_outlined,
@@ -55,6 +64,9 @@ class SignUp extends StatelessWidget {
 
           ),
             CustomTextFormAuth(
+              valid: (val){
+
+              },
               hinttext: "13".tr,
               labeltext: "19".tr,
               iconData: Icons.lock_clock_outlined,

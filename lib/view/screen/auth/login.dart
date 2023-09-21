@@ -1,5 +1,6 @@
 import 'package:e_course/controller/auth/login_controller.dart';
 import 'package:e_course/core/constant/color.dart';
+import 'package:e_course/core/functions/validinput.dart';
 import 'package:e_course/view/widget/auth/customtextbodyauth.dart';
 import 'package:e_course/view/widget/auth/logoauth.dart';
 import 'package:e_course/view/widget/auth/textsignup.dart';
@@ -26,47 +27,58 @@ class Login extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 31),
-        child: ListView(children: [
-          const     LogoAuth(),
-               CustomTextTitleAuth(text: "10".tr),
-          const     SizedBox(height: 10,),
-               CustomTextBodyAuth(
-             text:
-             "11".tr),
-          const   SizedBox(height: 15,),
-             CustomTextFormAuth(
-               hinttext: "12".tr,
-               labeltext: "18".tr,
-            iconData: Icons.email_outlined,
-            mycontroller: controller.email,
-           // mycontroller: null,
-          ),
-            CustomTextFormAuth(
-            hinttext:  "13".tr,
-              labeltext: "19".tr,
-            iconData: Icons.lock_clock_outlined,
-             mycontroller: controller.password,
-          ),
-          InkWell(
-            onTap: (){
-              controller.goToForgetPassword();
-
-            },
-            child:   Text(
-              "14".tr,
-              textAlign: TextAlign.end,
+        child: Form(
+          key: controller.formstate,
+          child: ListView(children: [
+            const     LogoAuth(),
+                 CustomTextTitleAuth(text: "10".tr),
+            const     SizedBox(height: 10,),
+                 CustomTextBodyAuth(
+               text:
+               "11".tr),
+            const   SizedBox(height: 15,),
+               CustomTextFormAuth(
+                 valid: (val){
+                   return validInput(val!, 5, 100, "email");
+                 },
+                 hinttext: "12".tr,
+                 labeltext: "18".tr,
+              iconData: Icons.email_outlined,
+              mycontroller: controller.email,
+             // mycontroller: null,
             ),
-          ),
-          CustomButtomAuth(text: "15".tr,  onPressed: (){},),
-          const SizedBox(height: 40,),
-         CustomTextSignUpOrSignIn(
-           textone: "16".tr,
-           texttwo: "17".tr,
-           onTap: () {
-             controller.goToSignUp();
-           },
-         )
-        ],),
+              CustomTextFormAuth(
+                valid: (val){
+                  return validInput(val!, 8, 30, "password");
+                },
+              hinttext:  "13".tr,
+                labeltext: "19".tr,
+              iconData: Icons.lock_clock_outlined,
+               mycontroller: controller.password,
+            ),
+            InkWell(
+              onTap: (){
+                controller.goToForgetPassword();
+
+              },
+              child:   Text(
+                "14".tr,
+                textAlign: TextAlign.end,
+              ),
+            ),
+            CustomButtomAuth(text: "15".tr,  onPressed: (){
+              controller.login();
+            },),
+            const SizedBox(height: 40,),
+           CustomTextSignUpOrSignIn(
+             textone: "16".tr,
+             texttwo: "17".tr,
+             onTap: () {
+               controller.goToSignUp();
+             },
+           )
+          ],),
+        ),
       ),
     );
   }
