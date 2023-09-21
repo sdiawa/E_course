@@ -38,6 +38,7 @@ class Login extends StatelessWidget {
                "11".tr),
             const   SizedBox(height: 15,),
                CustomTextFormAuth(
+                 isNumber: false ,
                  valid: (val){
                    return validInput(val!, 5, 100, "email");
                  },
@@ -48,6 +49,7 @@ class Login extends StatelessWidget {
              // mycontroller: null,
             ),
               CustomTextFormAuth(
+                isNumber: false ,
                 valid: (val){
                   return validInput(val!, 8, 30, "password");
                 },

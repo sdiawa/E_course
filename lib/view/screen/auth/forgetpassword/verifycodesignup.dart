@@ -1,4 +1,3 @@
-import 'package:e_course/controller/auth/verifycode_controller.dart';
 import 'package:e_course/core/constant/color.dart';
 import 'package:e_course/view/widget/auth/customtextbodyauth.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,7 +14,8 @@ class VerfiyCodeSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeSignUpControllerImp  controller = Get.put(VerifyCodeSignUpControllerImp());
+    VerifyCodeSignUpControllerImp  controller =
+    Get.put(VerifyCodeSignUpControllerImp());
     // ResetPasswordControllerImp  controller = Get.put(ResetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(

@@ -10,7 +10,8 @@ class SuccessSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SuccessSignUpControllerControllerImp controller = Get.put(SuccessSignUpControllerControllerImp());
+    SuccessSignUpControllerControllerImp controller =
+    Get.put(SuccessSignUpControllerControllerImp());
 
     return Scaffold(
       appBar: AppBar(

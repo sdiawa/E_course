@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../../../controller/auth/resetpassword_controller.dart';
+import '../../../../core/functions/validinput.dart';
 import '../../../widget/auth/custombuttomauth.dart';
 import '../../../widget/auth/customtextformauth.dart';
 import '../../../widget/auth/customtexttitleauth.dart';
@@ -15,7 +16,8 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     ResetPasswordControllerImp  controller = Get.put(ResetPasswordControllerImp());
+     ResetPasswordControllerImp  controller =
+     Get.put(ResetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -25,6 +27,8 @@ class ResetPassword extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 31),
+        child: Form(
+        key: controller.formstate,
         child: ListView(children: [
           const     SizedBox(height: 20,),
                CustomTextTitleAuth(text: "35".tr),
@@ -34,14 +38,20 @@ class ResetPassword extends StatelessWidget {
           const   SizedBox(height: 15,),
 
           CustomTextFormAuth(
-            valid: (val){ },
+            isNumber: false ,
+            valid: (val){
+              return validInput(val!, 3, 40, "password");
+            },
             hinttext: "13".tr,
             labeltext:  "19".tr,
             iconData: Icons.lock_clock_outlined,
             mycontroller: controller.password,
           ),
           CustomTextFormAuth(
-            valid: (val){ },
+            isNumber: false ,
+            valid: (val){
+              return validInput(val!, 3, 40, "password");
+            },
             hinttext: "Re" + " " + "13".tr,
             labeltext:"19".tr ,
             iconData: Icons.lock_clock_outlined,
@@ -54,6 +64,7 @@ class ResetPassword extends StatelessWidget {
           const SizedBox(height: 30,),
 
         ],),
+        ),
       ),
     );
   }

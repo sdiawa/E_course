@@ -1,16 +1,11 @@
 import 'package:e_course/controller/auth/verifycode_controller.dart';
 import 'package:e_course/core/constant/color.dart';
 import 'package:e_course/view/widget/auth/customtextbodyauth.dart';
-import 'package:e_course/view/widget/auth/textsignup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import '../../../../../controller/auth/signup_controller.dart';
-import '../../../../controller/auth/forgetpassword_controller.dart';
-import '../../../widget/auth/custombuttomauth.dart';
-import '../../../widget/auth/customtextformauth.dart';
 import '../../../widget/auth/customtexttitleauth.dart';
 
 
