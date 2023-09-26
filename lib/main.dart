@@ -26,7 +26,8 @@ class  MyApp extends StatelessWidget {
      theme: controller.appTheme,
       home: const Language(),
      // Test(),
-      routes: routes,
+      // routes: routes,
+      getPages: routes,
 
     );
   }
