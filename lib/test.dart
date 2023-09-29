@@ -1,3 +1,4 @@
+import 'package:e_course/core/functions/checkinternet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
@@ -10,6 +11,23 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+
+  var res;
+  @override
+   intialdata() async {
+    res = await checkInternet();
+    print(res);
+
+  }
+
+  @override
+  void initState() async {
+    intialdata();
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
