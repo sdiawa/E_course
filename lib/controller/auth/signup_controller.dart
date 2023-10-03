@@ -1,7 +1,12 @@
-
-import 'package:e_course/core/constant/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+
+import '../../core/class/statusrequest.dart';
+import '../../core/constant/routes.dart';
+import '../../core/functions/handingdatacontroller.dart';
+import '../../data/datasource/remote/auth/signup.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -16,12 +21,35 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phone;
   late TextEditingController password;
 
+   StatusRequest statusRequest = StatusRequest.none;
+
+  SignupData signupData = SignupData(Get.find());
+
+  List data = [];
+
   @override
-  signUp() {
+  signUp() async {
     if (formstate.currentState!.validate()) {
-      Get.offNamed(AppRoute.verfiyCodeSignUp);
-      //Get.delete<SignUpControllerImp>();
+      statusRequest = StatusRequest.loading; 
+      update() ; 
+      var response = await signupData.postdata(
+          username.text, password.text, email.text, phone.text);
+      print("=============================== Controller $response ");
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          // data.addAll(response['data']);
+          Get.offNamed(AppRoute.verfiyCodeSignUp  ,arguments: {
+            "email" : email.text
+          });
+        } else {
+          Get.defaultDialog(title: "ُWarning" , middleText: "Numero de Téléphone ou Email Existe deja") ;
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     } else {
+      
     }
   }
 

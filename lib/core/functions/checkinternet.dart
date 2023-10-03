@@ -1,16 +1,12 @@
-import 'dart:developer';
 import 'dart:io';
 
-import 'package:get/get.dart';
-
-checkInternet() async{
-
+checkInternet() async {
   try {
-    var result= await InternetAddress.lookup("google.com");
+    var result = await InternetAddress.lookup("google.com");
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
       return true;
     }
-  } on SocketException catch (_) {
+  }on SocketException catch (_) {
     return false;
   }
 }

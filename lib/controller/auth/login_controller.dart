@@ -1,7 +1,11 @@
 
-import 'package:e_course/core/constant/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../core/class/statusrequest.dart';
+import '../../core/constant/routes.dart';
+import '../../core/functions/handingdatacontroller.dart';
+import '../../data/datasource/remote/auth/login.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -9,7 +13,10 @@ abstract class LoginController extends GetxController {
   goToForgetPassword();
 }
 
-class  LoginControllerImp extends LoginController {
+class LoginControllerImp extends LoginController {
+   
+  LoginData loginData  = LoginData(Get.find()) ; 
+
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   late TextEditingController email;
@@ -17,18 +24,33 @@ class  LoginControllerImp extends LoginController {
 
   bool isshowpassword = true;
 
-  showPassword(){
+  StatusRequest statusRequest = StatusRequest.none;
+
+  showPassword() {
     isshowpassword = isshowpassword == true ? false : true;
     update();
   }
 
   @override
-  login() {
-    var formdata = formstate.currentState;
-    if (formdata!.validate()) {
-      print("Valid");
+  login() async {
+    if (formstate.currentState!.validate()) {
+      statusRequest = StatusRequest.loading; 
+      update() ; 
+      var response = await loginData.postdata(email.text , password.text);
+      print("=============================== Controller $response ");
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          // data.addAll(response['data']);
+          Get.offNamed(AppRoute.homepage);
+        } else {
+          Get.defaultDialog(title: "ُWarning" , middleText: "Email ou Password Incorrecte");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     } else {
-      print("Not Valid");
+      
     }
   }
 

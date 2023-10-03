@@ -1,39 +1,36 @@
-import 'package:e_course/controller/onboarding_controller.dart';
-import 'package:e_course/core/constant/color.dart';
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
+import 'package:get/get.dart';
 
+import '../../controller/onboarding_controller.dart';
+import '../../core/constant/color.dart';
 import '../widget/onboarding/custombutton.dart';
 import '../widget/onboarding/customslider.dart';
 import '../widget/onboarding/dotcontroller.dart';
 
 class OnBoarding extends StatelessWidget {
-  const OnBoarding({super.key});
+  const OnBoarding({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OnBoardingControllerImp());
-    return const Scaffold(
-      backgroundColor: AppColor.backgroundcolor,
-      body: SafeArea(
-        child: Column(
-          children: [
-              Expanded(
+    Get.put(OnBoardingControllerImp()) ;
+    return Scaffold(
+        backgroundColor: AppColor.backgroundcolor,
+        body: SafeArea(
+          child: Column(children: [
+            const Expanded(
               flex: 4,
-              child:  CustomSliderOnBoarding(),
+              child: CustomSliderOnBoarding(),
             ),
-             Expanded (
+            Expanded(
                 flex: 1,
                 child: Column(
-              children:  [
-                 CustomDotControllerOnBoarding(),
-                 Spacer(flex: 2,),
-                 CustomButtonOnBoarding()
-              ],
-            ))
-          ],
-        )
-      )
-    );
+                  children: const [
+                    CustomDotControllerOnBoarding(),
+                    Spacer(flex: 2),
+                    CustomButtonOnBoarding()
+                  ],
+                ))
+          ]),
+        ));
   }
 }

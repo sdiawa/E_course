@@ -1,9 +1,10 @@
-import 'package:e_course/core/constant/imgaeasset.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
+import '../../../core/constant/imgaeasset.dart';
+
 class LogoAuth extends StatelessWidget {
-  const LogoAuth({super.key});
+  const LogoAuth({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

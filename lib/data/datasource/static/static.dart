@@ -1,32 +1,7 @@
-import 'package:get/get.dart';
+ import 'package:get/get_utils/get_utils.dart';
 
 import '../../../core/constant/imgaeasset.dart';
 import '../../model/onboardingmodel.dart';
-
-// List<OnBoardingModel> onBoardingList = [
-//   OnBoardingModel(
-//     title: "Choisiez votre produit",
-//     body: "Vous avez choisie un produit de 100k, Choisiez \n Choisiez votre produit sur \n E-course",
-//     image: AppImageAsset.onBoardingImageOne
-//   ),
-//
-//   OnBoardingModel(
-//       title: "Facile et securiser",
-//       body: "Vous avez choisie un produit de 100k, Choisiez \n Choisiez votre produit sur \n E-course",
-//       image: AppImageAsset.onBoardingImageTwo
-//   ),
-//
-//   OnBoardingModel(
-//       title: "Livraison Rapide",
-//       body: "Vous avez choisie un produit de 100k, Choisiez \n Choisiez votre produit sur \n E-course",
-//       image: AppImageAsset.onBoardingImageThree
-//   ),
-//
-//   // OnBoardingModel(
-//   //     title: "Livraison Rapide",
-//   //     body: "Vous avez choisie un produit de 100k, Choisiez \n Choisiez votre produit sur E-course",
-//   //     image: AppImageAsset.onBoardingImageFour
-//   // ),
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
@@ -35,5 +10,9 @@ List<OnBoardingModel> onBoardingList = [
       title: "4".tr, body: "5".tr, image: AppImageAsset.onBoardingImageTwo),
   OnBoardingModel(
       title: "6".tr, body: "7".tr, image: AppImageAsset.onBoardingImageThree),
-
+  // OnBoardingModel(
+  //     title: "Fast Delivery",
+  //     body:
+  //         "We Have a 100k Product , Choose \n Your Product From Our E-commerce Shop",
+  //     image: AppImageAsset.onBoardingImageFour),
 ];

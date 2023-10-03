@@ -1,20 +1,20 @@
-import 'package:e_course/core/constant/routes.dart';
-import 'package:flutter/cupertino.dart';
+
+
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../core/constant/routes.dart';
 
 abstract class SuccessResetPasswordController extends GetxController {
 
-  goToPageLogin();
+goToPageLogin() ; 
+
 }
 
 class SuccessResetPasswordControllerImp extends SuccessResetPasswordController {
-
-
   @override
   goToPageLogin() {
-    Get.offNamed(AppRoute.login);
-
-
+     Get.offAllNamed(AppRoute.login) ; 
   }
 
 }

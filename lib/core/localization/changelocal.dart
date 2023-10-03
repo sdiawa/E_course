@@ -1,8 +1,8 @@
 import 'dart:ui';
-import 'package:e_course/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constant/apptheme.dart';
+import '../services/services.dart';
 
 class LocaleController extends GetxController{
   Locale? language;

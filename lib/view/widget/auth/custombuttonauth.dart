@@ -1,19 +1,21 @@
-import 'package:e_course/core/constant/color.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+
+import '../../../core/constant/color.dart';
 
 class CustomButtomAuth extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
-  const CustomButtomAuth({super.key, required this.text, this.onPressed});
+  const CustomButtomAuth({Key? key, required this.text, this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const  EdgeInsets.only(top: 10),
+      margin:const EdgeInsets.only(top: 10),
       child: MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        padding: const EdgeInsets.symmetric(vertical: 13),
+        padding:const EdgeInsets.symmetric(vertical: 13),
         onPressed: onPressed,
         color: AppColor.primaryColor,
         textColor: Colors.white,
